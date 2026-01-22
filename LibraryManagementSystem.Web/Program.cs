@@ -1,4 +1,6 @@
 using LibraryManagementSystem.Web.Data;
+using LibraryManagementSystem.Web.Services;
+using LibraryManagementSystem.Web.Services.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -19,6 +21,10 @@ namespace LibraryManagementSystem.Web
             builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             builder.Services.AddControllersWithViews();
+
+            // Register application services
+            builder.Services.AddScoped<IAuthorService, AuthorService>();
+            builder.Services.AddScoped<IBookService, BookService>();
 
             var app = builder.Build();
 

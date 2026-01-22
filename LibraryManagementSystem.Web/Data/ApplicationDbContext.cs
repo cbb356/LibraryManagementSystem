@@ -8,8 +8,8 @@ namespace LibraryManagementSystem.Web.Data
     {
         public DbSet<Notification> Notifications { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
-        public DbSet<User> Authors { get; set; }
-        public DbSet<User> Books { get; set; }
+        public DbSet<Author> Authors { get; set; }
+        public DbSet<Book> Books { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
